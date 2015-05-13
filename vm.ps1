@@ -4,7 +4,7 @@
 Param($action, $name)
 
 $vmwareVIXRootDirectory = "C:\Program Files (x86)\VMware\VMware VIX";
-$rootVirtualMachineDirectory = "C:\Users\Saneyuki\Virtual Machines\VMWare";
+$rootVirtualMachineDirectory = "C:\Users\<user_name>\<path_to_vm_dir>";
 $runType = "workstation";
 $vmctl = "& '$vmwareVIXRootDirectory\vmrun.exe'"
 
