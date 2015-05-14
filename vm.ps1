@@ -7,22 +7,23 @@ $vmwareVIXRootDirectory = "C:\Program Files (x86)\VMware\VMware VIX";
 $rootVirtualMachineDirectory = "C:\Users\<user_name>\<path_to_vm_dir>";
 $runType = "workstation";
 $vmctl = "& '$vmwareVIXRootDirectory\vmrun.exe'"
+$params = "nogui"
 
 function Start-VirtualMachine($name) {
 	echo "Starting a virtual machine..."
-	Invoke-Expression -command ("$vmctl -T $runType start " + (Get-VMXPath $name))
+	Invoke-Expression -command ("$vmctl -T $runType start " + (Get-VMXPath $name) + " $params")
 	echo "Started"
 }
 
 function Stop-VirtualMachine($name) {
 	echo "Stopping a virtual machine..."
-	Invoke-Expression -command ("$vmctl -T $runType stop " + (Get-VMXPath $name))
+	Invoke-Expression -command ("$vmctl -T $runType stop " + (Get-VMXPath $name) + " $params")
 	echo "Stopped"
 } 
 
 function Suspend-VirtualMachine($name) {
 	echo "Suspending a virtual machine..."
-	Invoke-Expression -command ("$vmctl -T $runType suspend " + (Get-VMXPath $name))
+	Invoke-Expression -command ("$vmctl -T $runType suspend " + (Get-VMXPath $name) + " $params")
 	echo "Suspended"
 }
 
